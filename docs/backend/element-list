@@ -1,0 +1,6 @@
+com.ctmrepository
+com.ctmrepository.controller
+com.ctmrepository.model
+com.ctmrepository.repository
+com.ctmrepository.response
+com.ctmrepository.service

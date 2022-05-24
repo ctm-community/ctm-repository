@@ -1,0 +1,49 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Open Javadocs - Backend",
+            "type": "shell",
+            "linux": {
+                "command": "x-www-browser"
+            },
+            "windows": {
+                "command": "start"
+            },
+            "osx": {
+                "command": "open"
+            },
+            "args": [
+                "${workspaceFolder}/backend/index.html"
+            ],
+            "presentation": {
+                "reveal": "never",
+                "panel": "dedicated",
+                "close": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Open TypeDocs - Frontend",
+            "type": "shell",
+            "linux": {
+                "command": "x-www-browser"
+            },
+            "windows": {
+                "command": "start"
+            },
+            "osx": {
+                "command": "open"
+            },
+            "args": [
+                "${workspaceFolder}/frontend/index.html"
+            ],
+            "presentation": {
+                "reveal": "never",
+                "panel": "dedicated",
+                "close": true
+            },
+            "problemMatcher": []
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+.map-card {
+  flex-basis: max(25vw, 300px);
+
+  .map-action-area {
+    max-width: min(95vw, 600px);
+    min-width: max(25vw, 300px);
+  }
+
+  .map-card-media {
+    object-fit: contain;
+  }
+
+  .info-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: flex-start;
+
+    >* {
+      margin-right: 1em;
+    }
+  }
+
+  .info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    .info-text {
+      margin-left: 0.5ex;
+    }
+  }
+}

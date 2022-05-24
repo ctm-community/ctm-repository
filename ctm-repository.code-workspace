@@ -1,0 +1,54 @@
+{
+    "folders": [
+        {
+            "name": "Backend",
+            "path": "backend"
+        },
+        {
+            "name": "Frontend",
+            "path": "frontend"
+        },
+        {
+            "name": "Documentation",
+            "path": "docs"
+        },
+        {
+            "name": "GitHub",
+            "path": ".github"
+        },
+    ],
+    "settings": {
+        "editor.formatOnSave": true,
+        "files.exclude": {
+            "**/.git": true,
+            "**/.svn": true,
+            "**/.hg": true,
+            "**/CVS": true,
+            "**/.DS_Store": true,
+            "**/Thumbs.db": true,
+            "**/node_modules": true
+        },
+        "java.configuration.updateBuildConfiguration": "automatic"
+    },
+    "extensions": {
+        "recommendations": [
+            "pivotal.vscode-boot-dev-pack",
+            "vscjava.vscode-java-pack"
+        ]
+    },
+    "launch": {
+        "configurations": [
+            {
+                "type": "java",
+                "name": "CTM Repository Backend",
+                "request": "launch",
+                "cwd": "${workspaceFolder:Backend}",
+                "console": "internalConsole",
+                "mainClass": "com.ctmrepository.Application",
+                "projectName": "ctmrepository-backend",
+                "args": "",
+                "envFile": "${workspaceFolder:Backend}/.env"
+            }
+        ]
+    }
+}

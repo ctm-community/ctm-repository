@@ -1,0 +1,62 @@
+.main {
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+
+    img {
+      margin-top: 3vh;
+      margin-bottom: 1vh;
+      object-fit: contain;
+      width: max(min(100vw, 800px), 50vw);
+      // max(..., 50vw) makes it still decent on 4k monitors
+    }
+  }
+
+  .content {
+
+    // padding: 2em;
+    @media only screen and (min-width: 500px) {
+      // no space for side border on mobile
+      margin: 3vw;
+
+      >* {
+        border-radius: var(--border-radius);
+      }
+    }
+
+    .search-bar-wrapper {
+      background-color: white;
+      margin: 0 auto 2em;
+      width: 50%;
+    }
+
+    .maps {
+      padding: 2vw;
+      min-height: 50vh;
+      background-color: white;
+
+
+      .MuiPagination-ul {
+        justify-content: center;
+      }
+
+      .map-grid {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        >* {
+          margin: 1em;
+        }
+      }
+    }
+
+  }
+}
