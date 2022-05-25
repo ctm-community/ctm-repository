@@ -54,7 +54,7 @@ export default function MapView() {
               ) : (
                 <CardMedia
                   component="img"
-                  image={getPublicPath(map.image_url)}
+                  image={getPublicPath(map.imageUrl)}
                   alt="Map Image"
                 />
               )}
@@ -80,7 +80,7 @@ export default function MapView() {
                       <ListItemText primary="Author" secondary={map.author} />
                     </ListItem>
                     <ListItem>
-                      <ListItemText primary="Upload Date" secondary={map.upload_date} />
+                      <ListItemText primary="Upload Date" secondary={map.uploadDate} />
                     </ListItem>
                   </List>
                 </CardContent>

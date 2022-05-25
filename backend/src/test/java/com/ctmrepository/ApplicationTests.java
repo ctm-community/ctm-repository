@@ -58,8 +58,8 @@ class ApplicationTests {
         assertThat(controller.getMapSearch("", 1, 20, true)).isNotNull();
 
         // General Case
-        int max_test_map_size = Math.min(controller.getMapCount().getBody() / 2, 25);
-        MinecraftMap[] testMaps = new MinecraftMap[max_test_map_size];
+        int maxTestMapSize = Math.min(controller.getMapCount().getBody() / 2, 25);
+        MinecraftMap[] testMaps = new MinecraftMap[maxTestMapSize];
         List<MinecraftMap> pubMaps = controller.publishedMaps();
         for (int i = 0; i < testMaps.length; i++) {
             int rand = (int) (Math.random() * pubMaps.size());
@@ -84,8 +84,8 @@ class ApplicationTests {
         assertThat(controller.getMapSearch("", 1, 20, false)).isNotNull();
 
         // General Case
-        int max_test_map_size = Math.min(controller.getMapCount().getBody() / 2, 25);
-        MinecraftMap[] testMaps = new MinecraftMap[max_test_map_size];
+        int maxTestMapSize = Math.min(controller.getMapCount().getBody() / 2, 25);
+        MinecraftMap[] testMaps = new MinecraftMap[maxTestMapSize];
         List<MinecraftMap> pubMaps = controller.publishedMaps();
         for (int i = 0; i < testMaps.length; i++) {
             int rand = (int) (Math.random() * pubMaps.size());
@@ -106,6 +106,6 @@ class ApplicationTests {
     @Test
     void searchHasMaxPages() {
         assertThat(controller.getMapSearch("", 1, 20, true)).isNotNull();
-        assertThat(controller.getMapSearch("", 1, 20, true).getBody().max_page > 0).isTrue();
+        assertThat(controller.getMapSearch("", 1, 20, true).getBody().maxPage > 0).isTrue();
     }
 }

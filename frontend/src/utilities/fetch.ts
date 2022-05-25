@@ -15,7 +15,7 @@ import { joinPaths } from "utilities/path";
  * @param {[any]} dependsArray values that should trigger a reload of data if they change
  * @returns {[isLoading, data, error]} whether its still loading, the data, error 
  */
-export function useFetchAPI(path: string, dependsArray: any[] | null = null, data_default: any = null): [boolean, any, useFetch.UseFetchError | undefined] {
+export function useFetchAPI(path: string, dependsArray: any[] | null = null, defaultData: any = null): [boolean, any, useFetch.UseFetchError | undefined] {
     if (path.startsWith('/')) {
         path = path.substring(1);
     }
@@ -33,7 +33,7 @@ export function useFetchAPI(path: string, dependsArray: any[] | null = null, dat
         getFetchPath(path), args);
 
     if (isLoading || error) {
-        data = data_default;
+        data = defaultData;
     }
 
     useEffect(() => {

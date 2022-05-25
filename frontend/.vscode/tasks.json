@@ -72,6 +72,15 @@
             ],
             "problemMatcher": [],
             "label": "Build React",
+        },
+        {
+            "type": "shell",
+            "command": "npx",
+            "args": [
+                "typedoc"
+            ],
+            "problemMatcher": [],
+            "label": "Generate TypeDocs",
         }
     ]
 }

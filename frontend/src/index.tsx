@@ -6,13 +6,13 @@ import ReactDOMClient from 'react-dom/client';
 import theme from 'theme';
 
 
-const root_container = document.getElementById('root');
-if (!root_container) {
+const rootContainer = document.getElementById('root');
+if (!rootContainer) {
   throw new Error("Missing root container element");
 }
 
 // Main render function
-export const root = ReactDOMClient.createRoot(root_container);
+export const root = ReactDOMClient.createRoot(rootContainer);
 root.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>

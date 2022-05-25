@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "ctm_maps")
+@Table(name = "ctmMaps")
 public class MinecraftMap {
 
     @Id
@@ -18,8 +18,8 @@ public class MinecraftMap {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "upload_date")
-    private long upload_date;
+    @Column(name = "uploadDate")
+    private long uploadDate;
 
     @Column(name = "author")
     private String author;
@@ -27,32 +27,32 @@ public class MinecraftMap {
     @Column(name = "length")
     private String length;
 
-    @Column(name = "objective_main")
-    private int objective_main;
+    @Column(name = "objectiveMain")
+    private int objectiveMain;
 
-    @Column(name = "objective_bonus")
-    private int objective_bonus;
+    @Column(name = "objectiveBonus")
+    private int objectiveBonus;
 
     @Column(name = "difficulty")
     private String difficulty;
 
-    @Column(name = "description_short", length = 2048)
-    private String description_short;
+    @Column(name = "descriptionShort", length = 2048)
+    private String descriptionShort;
 
-    @Column(name = "download_count")
-    private long download_count;
+    @Column(name = "downloadCount")
+    private long downloadCount;
 
     @Column(name = "type")
     private String type;
 
-    @Column(name = "image_url")
-    private String image_url;
+    @Column(name = "imageUrl")
+    private String imageUrl;
 
     @Column(name = "series")
     private String series;
 
-    @Column(name = "mc_version")
-    private String mc_version;
+    @Column(name = "minecraftVersion")
+    private String minecraftVersion;
 
     @Column(name = "published")
     private boolean published;
@@ -104,14 +104,14 @@ public class MinecraftMap {
      * @return
      */
     public long getUploadDate() {
-        return this.upload_date;
+        return this.uploadDate;
     }
 
     /**
-     * @param upload_date
+     * @param uploadDate
      */
-    public void setUploadDate(long upload_date) {
-        this.upload_date = upload_date;
+    public void setUploadDate(long uploadDate) {
+        this.uploadDate = uploadDate;
     }
 
     /**
@@ -146,28 +146,28 @@ public class MinecraftMap {
      * @return
      */
     public int getObjectiveMain() {
-        return this.objective_main;
+        return this.objectiveMain;
     }
 
     /**
-     * @param objective_main
+     * @param objectiveMain
      */
-    public void setObjectiveMain(int objective_main) {
-        this.objective_main = objective_main;
+    public void setObjectiveMain(int objectiveMain) {
+        this.objectiveMain = objectiveMain;
     }
 
     /**
      * @return
      */
     public int getObjectiveBonus() {
-        return this.objective_bonus;
+        return this.objectiveBonus;
     }
 
     /**
-     * @param objective_bonus
+     * @param objectiveBonus
      */
-    public void setObjectiveBonus(int objective_bonus) {
-        this.objective_bonus = objective_bonus;
+    public void setObjectiveBonus(int objectiveBonus) {
+        this.objectiveBonus = objectiveBonus;
     }
 
     /**
@@ -187,29 +187,29 @@ public class MinecraftMap {
     /**
      * @return
      */
-    public String getDescription_short() {
-        return this.description_short;
+    public String getDescriptionShort() {
+        return this.descriptionShort;
     }
 
     /**
-     * @param description_short
+     * @param descriptionShort
      */
-    public void setDescription_short(String description_short) {
-        this.description_short = description_short;
+    public void setDescriptionShort(String descriptionShort) {
+        this.descriptionShort = descriptionShort;
     }
 
     /**
      * @return
      */
-    public long getDownload_count() {
-        return this.download_count;
+    public long getDownloadCount() {
+        return this.downloadCount;
     }
 
     /**
-     * @param download_count
+     * @param downloadCount
      */
-    public void setDownload_count(long download_count) {
-        this.download_count = download_count;
+    public void setDownloadCount(long downloadCount) {
+        this.downloadCount = downloadCount;
     }
 
     /**
@@ -229,15 +229,15 @@ public class MinecraftMap {
     /**
      * @return
      */
-    public String getImage_url() {
-        return this.image_url;
+    public String getImageUrl() {
+        return this.imageUrl;
     }
 
     /**
-     * @param image_url
+     * @param imageUrl
      */
-    public void setImage_url(String image_url) {
-        this.image_url = image_url;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     /**
@@ -257,43 +257,43 @@ public class MinecraftMap {
     /**
      * @return
      */
-    public String getMc_version() {
-        return this.mc_version;
+    public String getMinecraftVersion() {
+        return this.minecraftVersion;
     }
 
     /**
-     * @param mc_version
+     * @param minecraftVersion
      */
-    public void setMc_version(String mc_version) {
-        this.mc_version = mc_version;
+    public void setMinecraftVersion(String minecraftVersion) {
+        this.minecraftVersion = minecraftVersion;
     }
 
     public MinecraftMap() {
     }
 
-    public MinecraftMap(String name, long upload_date, String author, String length, int objective_main,
-            int objective_bonus, String difficulty, String description_short, long download_count, String type,
-            String image_url, String series, String mc_version, boolean published) {
+    public MinecraftMap(String name, long uploadDate, String author, String length, int objectiveMain,
+            int objectiveBonus, String difficulty, String descriptionShort, long downloadCount, String type,
+            String imageUrl, String series, String minecraftVersion, boolean published) {
         this.name = name;
-        this.upload_date = upload_date;
+        this.uploadDate = uploadDate;
         this.author = author;
         this.length = length;
-        this.objective_main = objective_main;
-        this.objective_bonus = objective_bonus;
+        this.objectiveMain = objectiveMain;
+        this.objectiveBonus = objectiveBonus;
         this.difficulty = difficulty;
-        this.description_short = description_short;
-        this.download_count = download_count;
+        this.descriptionShort = descriptionShort;
+        this.downloadCount = downloadCount;
         this.type = type;
-        this.image_url = image_url;
+        this.imageUrl = imageUrl;
         this.series = series;
-        this.mc_version = mc_version;
+        this.minecraftVersion = minecraftVersion;
         this.published = published;
     }
 
     // @Override
     // public String toString() {
-    // return "MinecraftMap [id=" + id + ", name=" + name + ", mc_version=" +
-    // minecraftVersion + ", download_count="
+    // return "MinecraftMap [id=" + id + ", name=" + name + ", minecraftVersion=" +
+    // minecraftVersion + ", downloadCount="
     // + downloadCount + ", verified=" + verified + "]";
     // }
 

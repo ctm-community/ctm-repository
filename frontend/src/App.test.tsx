@@ -10,18 +10,18 @@ fetch.enableMocks();
 const minecraftMap: MinecraftMap = {
     id: 1,
     name: "a name",
-    upload_date: -10,
+    uploadDate: -10,
     author: "an author",
     length: "1 meter",
-    objective_main: 1,
-    objective_bonus: 2,
+    objectiveMain: 1,
+    objectiveBonus: 2,
     difficulty: "yes",
-    description_short: "a map",
-    download_count: 42,
+    descriptionShort: "a map",
+    downloadCount: 42,
     type: "example",
-    image_url: "example.png",
+    imageUrl: "example.png",
     series: "the test case series",
-    mc_version: "1.0.0"
+    minecraftVersion: "1.0.0"
 };
 
 beforeEach(() => {
@@ -32,7 +32,7 @@ beforeEach(() => {
         const url = new URL(req.url);
         switch (url.pathname) {
             case '/search/maps':
-                return JSON.stringify({ max_page: 1, data: [minecraftMap] });
+                return JSON.stringify({ maxPage: 1, data: [minecraftMap] });
             case '/maps/count':
                 return '1'
             case '/maps/1':
@@ -148,7 +148,7 @@ test('rendering & pages nav', async () => {
     await waitFor(() => out.getByTestId('home-map-display'));
 
     expect(fetch.mock.calls.length).toBe(1);
-    expect(fetch.mock.calls[0][0]).toBe('http://localhost:8080/search/maps?q=&per_page=12&page=1');
+    expect(fetch.mock.calls[0][0]).toBe('http://localhost:8080/search/maps?q=&perPage=12&page=1');
 
     let search = out.getByLabelText('search term');
 
@@ -162,7 +162,7 @@ test('rendering & pages nav', async () => {
     await out.findByTestId('home-map-display');
 
     expect(fetch.mock.calls.length).toBe(2);
-    expect(fetch.mock.calls[1][0]).toBe('http://localhost:8080/search/maps?q=some%26info&per_page=12&page=1');
+    expect(fetch.mock.calls[1][0]).toBe('http://localhost:8080/search/maps?q=some%26info&perPage=12&page=1');
 });
 
 /**

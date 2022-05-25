@@ -9,7 +9,7 @@ import { useFetchAPI } from "utilities/fetch";
  * @param {any} obj the parameters to format
  * @returns {string} the formatted search parameter, ready to be put into a URL
  */
-export function search_param_helper(obj: any): string {
+export function searchParamHelper(obj: any): string {
     Object.keys(obj).forEach(k => {
         if (obj[k] === undefined) {
             delete obj[k];
@@ -23,7 +23,7 @@ export function search_param_helper(obj: any): string {
  * Specify API Paths here
  */
 const API_ENDPOINTS = {
-    SEARCH_MAPS: (params: { q: string, page?: number, per_page?: number }) => '/search/maps?' + search_param_helper(params),
+    SEARCH_MAPS: (params: { q: string, page?: number, perPage?: number }) => '/search/maps?' + searchParamHelper(params),
     MAPS_ID: (id: number) => `/maps/${id}`
 }
 
@@ -34,22 +34,22 @@ const API_ENDPOINTS = {
 export interface MinecraftMap {
     id: number,
     name: string
-    upload_date: number,
+    uploadDate: number,
     author: string,
     length: string,
-    objective_main: number,
-    objective_bonus: number,
+    objectiveMain: number,
+    objectiveBonus: number,
     difficulty: string,
-    description_short: string,
-    download_count: number,
+    descriptionShort: string,
+    downloadCount: number,
     type: string,
-    image_url: string,
+    imageUrl: string,
     series: string,
-    mc_version: string
+    minecraftVersion: string
 }
 
 export interface SearchResult {
-    max_page: number,
+    maxPage: number,
     data: MinecraftMap[]
 }
 
@@ -67,13 +67,13 @@ export function useGetMapsSearch(
     query: string,
     page: number = 0,
     dependsArray: any[] | null = [],
-    per_page: number = ENTRIES_PER_PAGE
+    perPage: number = ENTRIES_PER_PAGE
 ): [boolean, SearchResult, useFetch.UseFetchError | undefined] {
 
     return useFetchAPI(
-        API_ENDPOINTS.SEARCH_MAPS({ q: query, per_page: per_page, page: page }),
+        API_ENDPOINTS.SEARCH_MAPS({ q: query, perPage: perPage, page: page }),
         dependsArray,
-        { max_page: 0, data: [] }
+        { maxPage: 0, data: [] }
     );
 }
 

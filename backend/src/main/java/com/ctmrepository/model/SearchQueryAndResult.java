@@ -4,13 +4,13 @@ import java.util.List;
 
 public class SearchQueryAndResult {
     public String q;
-    public int max_page;
+    public int maxPage;
     public boolean strict;
     public List<Long> maps;
 
-    public SearchQueryAndResult(String q, int max_page, boolean strict, List<Long> maps) {
+    public SearchQueryAndResult(String q, int maxPage, boolean strict, List<Long> maps) {
         this.q = q;
-        this.max_page = max_page;
+        this.maxPage = maxPage;
         this.strict = strict;
         this.maps = maps;
     }

@@ -79,29 +79,29 @@ public class MinecraftMapController {
      * Sorts map database according to query and returns results corresponding to
      * given page and response limit.
      *
-     * @param q        search query string
-     * @param page     page number of results to return
-     * @param per_page maximum number of results to return per page
-     * @param strict   if true, search will only return results with exact query
-     *                 matches
+     * @param q       search query string
+     * @param page    page number of results to return
+     * @param perPage maximum number of results to return per page
+     * @param strict  if true, search will only return results with exact query
+     *                matches
      */
     @GetMapping("/search/maps")
     public ResponseEntity<SearchResponseEntity> getMapSearch(
             @RequestParam() String q,
             @RequestParam(required = false, defaultValue = "1") @Min(1) int page,
-            @RequestParam(required = false, defaultValue = "20") @Min(1) @Max(100) int per_page,
+            @RequestParam(required = false, defaultValue = "20") @Min(1) @Max(100) int perPage,
             @RequestParam(required = false, defaultValue = "true") boolean strict) {
         try {
             q = q.toUpperCase().replaceAll("_", " ").trim();
 
             SearchQueryAndResult maps;
-            maps = service.sortByQuery(q, per_page, strict, minecraftMapRepository);
+            maps = service.sortByQuery(q, perPage, strict, minecraftMapRepository);
             List<MinecraftMap> outMaps = service.convertList(minecraftMapRepository,
-                    paginateList(maps.maps, page, per_page));
+                    paginateList(maps.maps, page, perPage));
 
             return ResponseEntity.ok()
                     .cacheControl(CacheControl.maxAge(1, TimeUnit.HOURS).cachePublic())
-                    .body(new SearchResponseEntity(maps.max_page, outMaps));
+                    .body(new SearchResponseEntity(maps.maxPage, outMaps));
         } catch (Exception e) {
             e.printStackTrace();
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
