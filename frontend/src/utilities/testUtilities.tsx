@@ -11,18 +11,18 @@ import { MinecraftMap } from 'utilities/api';
 export const minecraftMap: MinecraftMap = {
     id: 1,
     name: "a name",
-    upload_date: -10,
+    uploadDate: -10,
     author: "an author",
     length: "1 meter",
-    objective_main: 1,
-    objective_bonus: 2,
+    objectiveMain: 1,
+    objectiveBonus: 2,
     difficulty: "yes",
-    description_short: "a map",
-    download_count: 42,
+    descriptionShort: "a map",
+    downloadCount: 42,
     type: "example",
-    image_url: "example.png",
+    imageUrl: "example.png",
     series: "the test case series",
-    mc_version: "1.0.0"
+    minecraftVersion: "1.0.0"
 };
 
 /**

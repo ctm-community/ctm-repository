@@ -1,5 +1,5 @@
 import fetch from 'jest-fetch-mock';
-import { search_param_helper, useGetMap, useGetMapsSearch } from 'utilities/api';
+import { searchParamHelper, useGetMap, useGetMapsSearch } from 'utilities/api';
 import { APITest, ExpectedResult, minecraftMap } from 'utilities/testUtilities';
 
 
@@ -20,7 +20,7 @@ test("useGetMapsSearch", async () => {
 
     expect(fetch.mock.calls.length).toEqual(1);
 
-    expect(fetch.mock.calls[0][0]).toBe("http://localhost:8080/search/maps?q=some%2Fquery&per_page=12&page=0");
+    expect(fetch.mock.calls[0][0]).toBe("http://localhost:8080/search/maps?q=some%2Fquery&perPage=12&page=0");
 });
 
 test("useGetMapsSearch", async () => {
@@ -31,7 +31,7 @@ test("useGetMapsSearch", async () => {
 
     expect(fetch.mock.calls.length).toEqual(1);
 
-    expect(fetch.mock.calls[0][0]).toBe("http://localhost:8080/search/maps?q=some%2Fquery&per_page=12&page=42");
+    expect(fetch.mock.calls[0][0]).toBe("http://localhost:8080/search/maps?q=some%2Fquery&perPage=12&page=42");
 });
 
 test("useGetMapsSearch with pages", async () => {
@@ -42,7 +42,7 @@ test("useGetMapsSearch with pages", async () => {
 
     expect(fetch.mock.calls.length).toEqual(1);
 
-    expect(fetch.mock.calls[0][0]).toBe("http://localhost:8080/search/maps?q=some%2Fquery&per_page=1&page=42");
+    expect(fetch.mock.calls[0][0]).toBe("http://localhost:8080/search/maps?q=some%2Fquery&perPage=1&page=42");
 });
 
 test("useGetMap", async () => {
@@ -56,7 +56,7 @@ test("useGetMap", async () => {
     expect(fetch.mock.calls[0][0]).toBe("http://localhost:8080/maps/30");
 });
 
-test("search_param_helper", async () => {
-    const formattedURLParams = search_param_helper({ foo: 1, bar: undefined });
+test("searchParamHelper", async () => {
+    const formattedURLParams = searchParamHelper({ foo: 1, bar: undefined });
     expect(formattedURLParams).toBe('foo=1');
 });

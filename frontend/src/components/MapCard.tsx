@@ -50,7 +50,7 @@ export default function MapCard({ map }: IMapCardProps): JSX.Element {
       <CardActionArea onClick={expand} aria-label='map card'>
         <CardMedia
           component="img"
-          image={getPublicPath(map.image_url)}
+          image={getPublicPath(map.imageUrl)}
           alt="Map Image"
         />
         <CardContent>
@@ -65,12 +65,12 @@ export default function MapCard({ map }: IMapCardProps): JSX.Element {
             </Stack>
             <Stack direction="row" alignItems="left" gap={1}>
               <DownloadIcon fontSize="small" />
-              <Typography className='download_count' variant="subtitle2">{map.download_count}</Typography>
+              <Typography className='downloadCount' variant="subtitle2">{map.downloadCount}</Typography>
             </Stack>
           </Stack>
           <Stack direction="row" alignItems="left" gap={1}>
             <Item elevation={0} variant="outlined">
-              <Typography className='mc_version' variant="caption">Minecraft {map.mc_version}</Typography>
+              <Typography className='minecraftVersion' variant="caption">Minecraft {map.minecraftVersion}</Typography>
             </Item>
             <Item elevation={0} variant="outlined">
               <Typography className='length' variant="caption">{map.length} Map</Typography>

@@ -67,7 +67,7 @@ export default function Home() {
               spacing={2}
             >
               <Pagination
-                count={searchResult.max_page}
+                count={searchResult.maxPage}
                 page={page}
                 onChange={(_, e) => { setPage(e) }}
                 variant="outlined"
@@ -87,7 +87,7 @@ export default function Home() {
                 </div>
               )}
               <Pagination
-                count={searchResult.max_page}
+                count={searchResult.maxPage}
                 page={page}
                 onChange={(_, e) => { setPage(e) }}
                 variant="outlined"

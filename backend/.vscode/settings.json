@@ -1,3 +1,9 @@
 {
+    "[java]": {
+        "editor.autoIndent": "advanced",
+        "editor.detectIndentation": false,
+        "editor.suggest.snippetsPreventQuickSuggestions": false,
+        "editor.tabSize": 4
+    },
     "npm.useRootDirectory": false
 }

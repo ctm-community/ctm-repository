@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 public class MinecraftService {
 
     @Cacheable("search")
-    public SearchQueryAndResult sortByQuery(String q, int per_page, boolean strict,
+    public SearchQueryAndResult sortByQuery(String q, int perPage, boolean strict,
             MinecraftMapRepository minecraftMapRepository) {
         List<MinecraftMap> publishedMaps = minecraftMapRepository.findByPublished(true);
         List<Long> maps = new ArrayList<Long>();
@@ -25,9 +25,9 @@ public class MinecraftService {
         } else {
             fuzzySearchSort(publishedMaps, q.toUpperCase()).forEach(maps::add);
         }
-        int max_page = (int) Math.ceil(maps.size() / (.0 + per_page));
+        int maxPage = (int) Math.ceil(maps.size() / (.0 + perPage));
 
-        return new SearchQueryAndResult(q, max_page, strict, maps);
+        return new SearchQueryAndResult(q, maxPage, strict, maps);
     }
 
     public List<Long> strictSearchSort(List<MinecraftMap> maps, String search) {
@@ -143,9 +143,9 @@ public class MinecraftService {
     }
 
     double getJaroWinklerDistance(String s1, String s2) {
-        double jaro_dist = getJaroDistance(s1, s2);
+        double jaroDistance = getJaroDistance(s1, s2);
         // If the jaro Similarity is above a threshold
-        if (jaro_dist > 0.7) {
+        if (jaroDistance > 0.7) {
             // Find the length of common prefix
             int prefix = 0;
             for (int i = 0; i < Math.min(s1.length(), s2.length()); i++) {
@@ -158,43 +158,43 @@ public class MinecraftService {
             // Maximum of 4 characters are allowed in prefix
             prefix = Math.min(4, prefix);
             // Calculate jaro winkler Similarity
-            jaro_dist += 0.1 * prefix * (1 - jaro_dist);
+            jaroDistance += 0.1 * prefix * (1 - jaroDistance);
         }
-        return jaro_dist;
+        return jaroDistance;
     }
 
     double getJaroDistance(String s1, String s2) {
         if (s1.equals(s2))
             return 1.0;
 
-        int s_len = s1.length();
-        int t_len = s2.length();
+        int sLen = s1.length();
+        int tLen = s2.length();
 
-        if (s_len == 0 || t_len == 0) {
+        if (sLen == 0 || tLen == 0) {
             return 1;
         }
 
         // Maximum distance upto which matching
         // is allowed
-        int match_distance = (int) (Math.floor(Math.max(s_len, t_len) / 2) - 1);
+        int matchDistance = (int) (Math.floor(Math.max(sLen, tLen) / 2) - 1);
 
-        boolean[] s_matches = new boolean[s1.length()];
-        boolean[] t_matches = new boolean[s2.length()];
+        boolean[] sMatches = new boolean[s1.length()];
+        boolean[] tMatches = new boolean[s2.length()];
 
         int matches = 0;
         int transpositions = 0;
 
-        for (int i = 0; i < s_len; i++) {
-            int start = Integer.max(0, i - match_distance);
-            int end = Integer.min(i + match_distance + 1, t_len);
+        for (int i = 0; i < sLen; i++) {
+            int start = Integer.max(0, i - matchDistance);
+            int end = Integer.min(i + matchDistance + 1, tLen);
 
             for (int j = start; j < end; j++) {
-                if (t_matches[j])
+                if (tMatches[j])
                     continue;
                 if (s1.charAt(i) != s2.charAt(j))
                     continue;
-                s_matches[i] = true;
-                t_matches[j] = true;
+                sMatches[i] = true;
+                tMatches[j] = true;
                 matches++;
                 break;
             }
@@ -204,18 +204,18 @@ public class MinecraftService {
             return 0;
 
         int k = 0;
-        for (int i = 0; i < s_len; i++) {
-            if (!s_matches[i])
+        for (int i = 0; i < sLen; i++) {
+            if (!sMatches[i])
                 continue;
-            while (!t_matches[k])
+            while (!tMatches[k])
                 k++;
             if (s1.charAt(i) != s2.charAt(k))
                 transpositions++;
             k++;
         }
 
-        return (((double) matches / s_len) +
-                ((double) matches / t_len) +
+        return (((double) matches / sLen) +
+                ((double) matches / tLen) +
                 (((double) matches - transpositions / 2.0) / matches)) / 3.0;
     }
 
