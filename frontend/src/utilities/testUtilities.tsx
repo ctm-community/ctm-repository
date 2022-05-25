@@ -6,23 +6,23 @@ import { HashRouter, Route, Routes } from 'react-router-dom';
 import { MinecraftMap } from 'utilities/api';
 
 /**
- * A map for example
+ * An example map for unit testing
  */
 export const minecraftMap: MinecraftMap = {
     id: 1,
-    name: "a name",
-    uploadDate: -10,
-    author: "an author",
-    length: "1 meter",
+    name: "Map Name",
+    uploadDate: 1612832101,
+    author: "Author Name",
+    length: "Medium",
     objectiveMain: 1,
     objectiveBonus: 2,
-    difficulty: "yes",
-    descriptionShort: "a map",
+    difficulty: "Hard",
+    descriptionShort: "Short Map Description",
     downloadCount: 42,
-    type: "example",
-    imageUrl: "example.png",
-    series: "the test case series",
-    minecraftVersion: "1.0.0"
+    type: "Linear",
+    imageUrl: "/images/example.png",
+    series: "Map Series",
+    minecraftVersion: "1.16.5"
 };
 
 /**

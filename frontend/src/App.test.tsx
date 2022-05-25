@@ -3,26 +3,9 @@ import { fireEvent, queryByText, render, renderHook, waitFor } from '@testing-li
 import App from 'App';
 import fetch from 'jest-fetch-mock';
 import { useEffect } from 'react';
-import { MinecraftMap } from 'utilities/api';
+import { minecraftMap } from 'utilities/testUtilities';
 
 fetch.enableMocks();
-
-const minecraftMap: MinecraftMap = {
-    id: 1,
-    name: "a name",
-    uploadDate: -10,
-    author: "an author",
-    length: "1 meter",
-    objectiveMain: 1,
-    objectiveBonus: 2,
-    difficulty: "yes",
-    descriptionShort: "a map",
-    downloadCount: 42,
-    type: "example",
-    imageUrl: "example.png",
-    series: "the test case series",
-    minecraftVersion: "1.0.0"
-};
 
 beforeEach(() => {
     fetch.resetMocks();
@@ -70,12 +53,12 @@ test('rendering & loading maps', async () => {
     let images = out.getAllByAltText('Map Image');
     expect(images.length).toBe(1);
     // @ts-ignore
-    expect(images[0].src).toBe("http://localhost/example.png");
+    expect(images[0].src).toBe("http://localhost/images/example.png");
     expect(parts).toBeVisible();
     expect(parts.getElementsByTagName('img')[0]).toBeVisible();
-    expect(out.getByText("an author")).toBeVisible();
-    expect(out.getByText("a name")).toBeVisible();
-    expect(out.getByText("Minecraft 1.0.0")).toBeVisible();
+    expect(out.getByText("Author Name")).toBeVisible();
+    expect(out.getByText("Map Name")).toBeVisible();
+    expect(out.getByText("Minecraft 1.16.5")).toBeVisible();
 });
 
 /**
@@ -117,11 +100,11 @@ test('navigation to map', async () => {
     let panel = await out.findByLabelText('Map Information');
 
     expect(panel).toBeVisible();
-    expect(out.queryByText('a name')).toBeTruthy();
-    expect(out.queryByText('an author')).toBeTruthy();
+    expect(out.queryByText('Map Name')).toBeTruthy();
+    expect(out.queryByText('Author Name')).toBeTruthy();
     let img = out.getByAltText('Map Image');
     // @ts-ignore
-    expect(img.src).toBe('http://localhost/example.png');
+    expect(img.src).toBe('http://localhost/images/example.png');
 
     expect(out.queryByLabelText('map card')).toBeNull();
     expect(out.queryByTestId('home-map-display')).toBeNull();
