@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "https://ctm-community.github.io/ctm-repository/static/css/main.491a429d.css",
-    "main.js": "https://ctm-community.github.io/ctm-repository/static/js/main.504b5535.js",
+    "main.js": "https://ctm-community.github.io/ctm-repository/static/js/main.5a0b256b.js",
     "index.html": "https://ctm-community.github.io/ctm-repository/index.html",
     "main.491a429d.css.map": "https://ctm-community.github.io/ctm-repository/static/css/main.491a429d.css.map",
-    "main.504b5535.js.map": "https://ctm-community.github.io/ctm-repository/static/js/main.504b5535.js.map"
+    "main.5a0b256b.js.map": "https://ctm-community.github.io/ctm-repository/static/js/main.5a0b256b.js.map"
   },
   "entrypoints": [
     "static/css/main.491a429d.css",
-    "static/js/main.504b5535.js"
+    "static/js/main.5a0b256b.js"
   ]
 }
