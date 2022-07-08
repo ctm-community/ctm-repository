@@ -46,6 +46,7 @@ function ConfirmationDialogRaw(props: ConfirmationDialogRawProps) {
         overflowY: 'unset'
       }}>
         <canvas
+          aria-label="crop preview"
           ref={previewCanvasRef}
           style={{
             border: '1px solid black',
@@ -55,7 +56,7 @@ function ConfirmationDialogRaw(props: ConfirmationDialogRawProps) {
         />
       </DialogContent>
       <DialogActions>
-        <Button autoFocus onClick={() => onClose(false)}>
+        <Button autoFocus onClick={() => onClose(false)} aria-label="Cancel">
           Cancel
         </Button>
         <Button onClick={() => {
@@ -78,7 +79,7 @@ function ConfirmationDialogRaw(props: ConfirmationDialogRawProps) {
             }, "image/webp", 0.75);
           }
           onClose(true);
-        }}>Ok</Button>
+        }} aria-label="Accept">Ok</Button>
       </DialogActions>
     </Dialog>
   );
