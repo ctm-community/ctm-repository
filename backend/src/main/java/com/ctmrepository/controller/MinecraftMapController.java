@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
+import java.io.File;
+import java.io.IOException;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -24,10 +26,12 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 @Validated
 @CrossOrigin(origins = { "http://localhost:3000", "https://ctm-community.github.io" })
@@ -106,6 +110,25 @@ public class MinecraftMapController {
             e.printStackTrace();
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    @PostMapping("/upload")
+    public ResponseEntity<?> handleFileUpload(@RequestParam("file") MultipartFile file) {
+        String fileName = file.getOriginalFilename();
+        try {
+            // TODO: filename might be malicous, generate random id for filename
+            // filename rn is blob
+            String userHomeDir = System.getProperty("user.home");
+            File f = new File(userHomeDir + "/tmp/upload/" + fileName);
+            if (!f.mkdirs()) {
+                throw new IOException("Could not create folders of " + f.toString());
+            }
+            file.transferTo(f);
+        } catch (Exception e) {
+            System.out.println("Error: " + e.toString());
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return ResponseEntity.ok("File uploaded successfully.");
     }
 
     public void evictAllcaches() {

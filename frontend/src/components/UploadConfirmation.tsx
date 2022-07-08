@@ -5,6 +5,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useEffect, useRef, useState } from 'react';
 import { PercentCrop } from 'react-image-crop';
+import { upload } from 'utilities/api';
 import { canvasPreview } from '../utilities/preview';
 
 
@@ -66,8 +67,12 @@ function ConfirmationDialogRaw(props: ConfirmationDialogRawProps) {
                 throw new Error('Image was null');
               }
 
+              upload(blob);
+
               let newImg = document.createElement('img');
               let url = URL.createObjectURL(blob);
+
+
 
               // newImg.onload = function () {
               //   // no longer need to read the blob so it's revoked
@@ -101,7 +106,6 @@ export default function ConfirmationDialog({ completedCrop, image }: IProps) {
 
   const handleClose = (ok: boolean) => {
     setOpen(false);
-    console.log('Confirmation Success:', ok);
   };
 
   return (

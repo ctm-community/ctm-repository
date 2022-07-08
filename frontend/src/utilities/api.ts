@@ -1,5 +1,5 @@
 import useFetch from "react-fetch-hook";
-import { useFetchAPI } from "utilities/fetch";
+import { getFetchPath, useFetchAPI } from "utilities/fetch";
 
 
 /**
@@ -24,7 +24,8 @@ export function searchParamHelper(obj: any): string {
  */
 const API_ENDPOINTS = {
     SEARCH_MAPS: (params: { q: string, page?: number, perPage?: number }) => '/search/maps?' + searchParamHelper(params),
-    MAPS_ID: (id: number) => `/maps/${id}`
+    MAPS_ID: (id: number) => `/maps/${id}`,
+    UPLOAD: '/upload',
 }
 
 
@@ -94,4 +95,18 @@ export function useGetMap(
         dependsArray,
         null
     );
+}
+
+/**
+ * Upload an image
+ */
+export async function upload(image: Blob) {
+    let data = new FormData();
+    data.append('file', image);
+
+    const path = getFetchPath(API_ENDPOINTS.UPLOAD);
+    fetch(path, {
+        method: 'POST',
+        body: data
+    }).then(console.log).catch(console.error);
 }

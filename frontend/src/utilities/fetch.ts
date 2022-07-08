@@ -57,6 +57,6 @@ export function useFetchAPI(path: string, dependsArray: any[] | null = null, def
  * @param {string} path the api endpoint 
  * @returns {string} path with http and the api path added
  */
-function getFetchPath(path: string): string {
+export function getFetchPath(path: string): string {
     return joinPaths(getRestAPI(), path)
 }

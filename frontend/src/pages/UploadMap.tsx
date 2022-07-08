@@ -107,8 +107,6 @@ export default function UploadMap() {
                 : <></>}
 
             </Stack>
-            { /* <!-- className="Crop-Controls" --> */}
-
           </CardContent>
         </Card>
 
