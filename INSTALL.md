@@ -12,14 +12,12 @@
   - [macOS](#macos-2)
 - [Database Setup](#database-setup)
 
-Note: Install dependencies before setting up VSCode. 
-
-Note: See `docs/ContributorsGuide.md` for troubleshooting tips and VSCode setup. 
+Note: Install dependencies before setting up VSCode.
 
 # Source Code
 To get started, you can clone the repository using the following command:
 ```
-git clone https://github.com/hydrogen602Trinity/Cartographers.git
+git clone https://github.com/ctm-community/ctm-repository.git
 ```
 
 ## Windows
