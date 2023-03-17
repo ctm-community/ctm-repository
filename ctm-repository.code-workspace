@@ -1,6 +1,10 @@
 {
     "folders": [
         {
+            "name": "Workspace",
+            "path": "."
+        },
+        {
             "name": "Backend",
             "path": "backend"
         },
@@ -20,12 +24,6 @@
     "settings": {
         "editor.formatOnSave": true,
         "files.exclude": {
-            "**/.git": true,
-            "**/.svn": true,
-            "**/.hg": true,
-            "**/CVS": true,
-            "**/.DS_Store": true,
-            "**/Thumbs.db": true,
             "**/node_modules": true
         },
         "java.configuration.updateBuildConfiguration": "automatic"
@@ -33,8 +31,7 @@
     "extensions": {
         "recommendations": [
             "pivotal.vscode-boot-dev-pack",
-            "vscjava.vscode-java-pack",
-            "eg2.vscode-npm-script"
+            "vscjava.vscode-java-pack"
         ]
     },
     "launch": {
